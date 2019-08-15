@@ -1,0 +1,15 @@
+<h1>{{ question.question_text }}</h1>
+<li>RESPUESTAS</li>
+<ul>
+<!--el (c) itera y muestra (clave(opcion)-resultado(true o false)) -->
+{% for opcion,resultado in c.items %} 
+	<li>{{ opcion }} {% if resultado %}
+<!--doble llave imprime -->
+<p style="color:green"> correcto </p>
+		{%else%}
+<p style="color:red"> incorrecto </p>
+		{%endif%}
+	</li>
+{% endfor %}
+</ul>
+<a href ="{% url 'polls:detail' question.id %}"> volver a responder <a/>
